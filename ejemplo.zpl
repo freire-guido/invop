@@ -1,0 +1,11 @@
+set I:= {1, 2};
+#param c[I] := <1> 5, <2> 4;
+var x[I] real;
+#maximize profit: sum <i> in I : c[i]*x[i];
+maximize profit: 5*x[1]+4*x[2];
+subto r1: 6*x[1] + 4*x[2] <= 24;
+subto r2: x[1] + 2*x[2] <= 6;
+subto r3: x[1] <= 2;
+subto r4: x[2] <= x[1] + 1;
+subto r5: x[1] >= 0;
+subto r6: x[2] >= 0;

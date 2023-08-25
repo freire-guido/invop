@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "SCIP: solve",
+            "type": "shell",
+            "command": "../bin/scip -f ejemplo.zpl | awk '/primal solution (original space):/{flag=1; next} /Statistics/{flag=0} flag && !/^=+$/' | sed -n '/./,/^$/p'",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+	]
+}
+
