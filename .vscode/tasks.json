@@ -4,16 +4,10 @@
         {
             "label": "SCIP: solve",
             "type": "shell",
-            "command": "../bin/scip -f ejemplo.zpl | awk '/primal solution (original space):/{flag=1; next} /Statistics/{flag=0} flag && !/^=+$/' | sed -n '/./,/^$/p'",
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "group": {
+            "command": "scip -f ${fileBasename} | awk '/primal solution (original space):/{flag=1; next} /Statistics/{flag=0} flag && !/^=+$/' | sed -n '/./,/^$/p'",
+            "group":{
                 "kind": "build",
                 "isDefault": true
-            },
-            "presentation": {
-                "reveal": "silent"
             }
         }
 	]
