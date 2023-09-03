@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "scip -f ${fileBasename} | awk '/primal solution (original space):/{flag=1; next} /Statistics/{flag=0} flag && !/^=+$/' | sed -n '/./,/^$/p'",
             "windows":{
-                "command": "scip -f ${fileBasename}",
+                "command": "scip -f ${fileBasename} | Out-String | Select-String -Pattern 'primal solution([\\s\\S]*?)Statistics' -AllMatches | Foreach {$_.Matches} | Foreach {$_.Value}",
             },
             "group":{
                 "kind": "build",
@@ -15,4 +15,3 @@
         }
 	]
 }
-
