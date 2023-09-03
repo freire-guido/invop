@@ -33,8 +33,8 @@ subto t5: forall <i> in K: lambda[i] >= 0;
 subto t6: lambda[card(K)] <= 1 - 0.00001;
 
 # relacion entre las variables
-subto v1: forall <j> in J: sum <n> in N: e[n, j] <= card(N)*r[j];
-subto v2: forall <j> in J: - sum <n> in N: e[n, j] <= -1 + card(N)*(1-r[j]);
+subto v1: forall <j> in J: (sum <n> in N: e[n, j]) - d[j] <= -1 + card(N)*r[j];
+subto v2: forall <j> in J: d[j] - sum <n> in N: e[n, j] <= card(N)*(1-r[j]);
 
 # depto. RRHH
 subto rrhh1: forall <j> in J: e[3, j] == e[5, j];
