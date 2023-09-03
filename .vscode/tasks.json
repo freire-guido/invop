@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "scip -f ${fileBasename} | awk '/primal solution (original space):/{flag=1; next} /Statistics/{flag=0} flag && !/^=+$/' | sed -n '/./,/^$/p'",
             "windows":{
-                "command": "scip -f ${fileBasename} | findstr /r \"x#\\d*\"",
+                "command": "scip -f ${fileBasename}",
             },
             "group":{
                 "kind": "build",
